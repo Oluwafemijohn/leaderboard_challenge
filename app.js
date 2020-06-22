@@ -1,8 +1,8 @@
-const express = require('express')
-const PORT = process.env.PORT 
-const dotenv = require('dotenv').config()
-const app =  express()
+require('dotenv').config()
 const path = require('path')
+const express = require('express')
+const PORT = process.env.PORT || 4000
+const app =  express()
 
 
 app.use(express.json())
@@ -20,5 +20,5 @@ app.get('/',(req,res) => res.render('home'))
 // })
 
 // Set SERVER ON
-app.listen(5000, () => console.log('Server is running...'))
+app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`))
 
