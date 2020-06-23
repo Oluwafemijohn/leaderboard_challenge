@@ -17,6 +17,8 @@
   <!-- Bootstrap core CSS -->
   <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- <link rel="stylesheet" href="css/mdb.min.css"> -->
+
   <!-- Custom styles for this template -->
   <link href="css/cover.css" rel="stylesheet">
 </head>
@@ -37,25 +39,48 @@
     </div>
 
     <main role="main" class="inner cover ">
-      <h1 class="cover-heading">HNGi7 Central Leaderboard. <span class="h6 float-right text-success" id="total"></span></h1>
-      
+      <h1 class="cover-heading">HNGi7 Central Leaderboard. <span class="h6 float-right text-success" id="total"> </span>
+      </h1>
     </main>
 
     <div class="container">
-    <div class="fb-quote"></div>
+      <div class="fb-quote"></div>
       <div class="card">
         <div class="card-body bg-dark p-0 ">
-          
+
           <div class="table-responsive ">
 
-            <table class="table table-hover table-sm  table-dark mb-0 ">
+            <!-- <table id="dtOrderExample" class="table table-hover table-sm  table-dark mb-0 ">
               <thead>
                 <tr id="thead">
-                  <!-- <th scope="col">#</th>
+                  <th scope="col">#</th>
                   <th scope="col">First</th>
                   <th scope="col">Last</th>
                   <th scope="col">Handle</th>
-                  <th scope="col" style="width: 90px;">Share</th> -->
+                  <th scope="col" style="width: 90px;">Share</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+
+              </tbody>
+            </table> -->
+
+
+            <table id="sort" class="table  table-hover table-sm mb-0 table-dark" cellspacing="0" width="100%">
+              <thead id="thead">
+                <tr>
+                  <th class="th-sm nosort">#
+                  </th>
+                  <th class="th-sm nosort">FULL NAME
+                  </th>
+                  <th class="th-sm nosort">USERNAME
+                  </th>
+                  <th class="th-sm">EMAIL
+                  </th>
+                  <th class="th-sm">TOTAL POINTS
+                  </th>
+                  <th class="th-sm">SHARE
+                  </th>
                 </tr>
               </thead>
               <tbody id="tbody">
@@ -90,9 +115,16 @@
   <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/924f6df9c3.js" crossorigin="anonymous"></script>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0" nonce="5b4HlAqM"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0"
+    nonce="5b4HlAqM"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/plug-ins/1.10.15/sorting/stringMonthYear.js"></script> -->
+
   <script src="js/main.js"></script>
-  
+
 
 </body>
 

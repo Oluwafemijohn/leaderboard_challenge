@@ -32,11 +32,11 @@ const getData = async (e) => {
     let th = '<th scope="col">#</th>'
     let tr = ''
     let count = 0
-    result.data.forEach((element,id) => {
+    result.data.forEach((element, id) => {
         count++
         if (id === 0) {
             tr += `<tr class="bg-success">
-                <th scope="row">${id+1}</th>
+                <th scope="row">${id + 1}</th>
                 <td >${element["FULL NAME"]}</td>
                 <td>${element["USERNAME"]}</td>
                 <td>${element["EMAIL"]}</td>
@@ -47,10 +47,10 @@ const getData = async (e) => {
                 <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleaderbrd.herokuapp.com%2F&amp;src=sdkpreparse" class=" fb-share-button fb-xfbml-parse-ignore" style="margin-top: -4px; margin-left: 10px;" data-href="https://leaderbrd.herokuapp.com/" data-layout="button" data-size="small">Facebook</a>
                 </td>
             </tr>`
-        } 
+        }
         if (id === 1) {
             tr += `<tr class="bg-info">
-                <th scope="row">${id+1}</th>
+                <th scope="row">${id + 1}</th>
                 <td >${element["FULL NAME"]}</td>
                 <td>${element["USERNAME"]}</td>
                 <td>${element["EMAIL"]}</td>
@@ -64,7 +64,7 @@ const getData = async (e) => {
         }
         if (id === 2) {
             tr += `<tr class="bg-warning">
-                <th scope="row">${id+1}</th>
+                <th scope="row">${id + 1}</th>
                 <td >${element["FULL NAME"]}</td>
                 <td>${element["USERNAME"]}</td>
                 <td>${element["EMAIL"]}</td>
@@ -75,10 +75,10 @@ const getData = async (e) => {
                 <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleaderbrd.herokuapp.com%2F&amp;src=sdkpreparse" class=" fb-share-button fb-xfbml-parse-ignore" style="margin-top: -4px; margin-left: 10px;" data-href="https://leaderbrd.herokuapp.com/" data-layout="button" data-size="small">Facebook</a>
                 </td>
             </tr>`
-        } 
-        if(id > 2) {
+        }
+        if (id > 2) {
             tr += `<tr>
-                <th scope="row">${id+1}</th>
+                <th scope="row">${id + 1}</th>
                 <td>${element["FULL NAME"]}</td>
                 <td>${element["USERNAME"]}</td>
                 <td>${element["EMAIL"]}</td>
@@ -92,12 +92,12 @@ const getData = async (e) => {
         }
         if (count === 1) {
             for (const property in element) {
-                th += `<th scope="col">${property}</th>`
+                th += `<th scope="col nosort">${property}</th>`
             }
         }
     });
 
-    th += '<th scope="col" style="width: 90px;">Share</th>'
+    th += '<th scope="col" style="width: 90px;">SHARE</th>'
 
     document.querySelector('#total').innerHTML = await `Total: ${count}`
     const thead = document.querySelector('#thead')
@@ -105,8 +105,36 @@ const getData = async (e) => {
 
     const tbody = document.querySelector('#tbody')
     tbody.innerHTML = await tr
-    
+
+
+    $(document).ready(function () {
+        $("#sort").DataTable({
+            "columns":[
+                { "sortable": false},
+                { "sortable": false},
+                { "sortable": false},
+                { "sortable": false},
+                { "sortable": true},
+                { "sortable": false}
+            ],
+            "searching": false,
+            "lengthChange": false,
+            "info": false,
+            "pagingType": "full_numbers",
+            "language": {
+                paginate: {
+                    first: " ",
+                    last: " ",
+                    next: " ",
+                    previous: " "
+                }
+            },
+
+        });
+    });
 }
 
 // Get Posts on DOM Load
 document.addEventListener('DOMContentLoaded', getData);
+
+
