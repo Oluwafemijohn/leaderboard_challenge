@@ -32,11 +32,11 @@ const getData = async (e) => {
     let th = '<th scope="col">#</th>'
     let tr = ''
     let count = 0
-    result.data.forEach((element) => {
+    result.data.forEach((element,id) => {
         count++
-        if (count <= 3) {
-            tr += `<tr class="bg-info">
-                <th scope="row">${count}</th>
+        if (id === 0) {
+            tr += `<tr class="bg-success">
+                <th scope="row">${id+1}</th>
                 <td >${element["FULL NAME"]}</td>
                 <td>${element["USERNAME"]}</td>
                 <td>${element["EMAIL"]}</td>
@@ -47,9 +47,38 @@ const getData = async (e) => {
                 <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleaderbrd.herokuapp.com%2F&amp;src=sdkpreparse" class=" fb-share-button fb-xfbml-parse-ignore" style="margin-top: -4px; margin-left: 10px;" data-href="https://leaderbrd.herokuapp.com/" data-layout="button" data-size="small">Facebook</a>
                 </td>
             </tr>`
-        } else {
+        } 
+        if (id === 1) {
+            tr += `<tr class="bg-info">
+                <th scope="row">${id+1}</th>
+                <td >${element["FULL NAME"]}</td>
+                <td>${element["USERNAME"]}</td>
+                <td>${element["EMAIL"]}</td>
+                <td>${element["TOTAL POINTS"]}</td>
+                <td style="display: flex; align-items: center; justify-content: center; " >
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" class="twitter-share-button pr-2" data-text="HNGi7 Central Leaderboard\n\nMY TOTAL POINTS: ${element["TOTAL POINTS"]}."  data-hashtags="HNGi7"  data-show-count="false"  data-url="\n\nFrom: ${currUrl}\n">Tweet</a>
+
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleaderbrd.herokuapp.com%2F&amp;src=sdkpreparse" class=" fb-share-button fb-xfbml-parse-ignore" style="margin-top: -4px; margin-left: 10px;" data-href="https://leaderbrd.herokuapp.com/" data-layout="button" data-size="small">Facebook</a>
+                </td>
+            </tr>`
+        }
+        if (id === 2) {
+            tr += `<tr class="bg-warning">
+                <th scope="row">${id+1}</th>
+                <td >${element["FULL NAME"]}</td>
+                <td>${element["USERNAME"]}</td>
+                <td>${element["EMAIL"]}</td>
+                <td>${element["TOTAL POINTS"]}</td>
+                <td style="display: flex; align-items: center; justify-content: center; " >
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" target="_blank" class="twitter-share-button pr-2" data-text="HNGi7 Central Leaderboard\n\nMY TOTAL POINTS: ${element["TOTAL POINTS"]}."  data-hashtags="HNGi7"  data-show-count="false"  data-url="\n\nFrom: ${currUrl}\n">Tweet</a>
+
+                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleaderbrd.herokuapp.com%2F&amp;src=sdkpreparse" class=" fb-share-button fb-xfbml-parse-ignore" style="margin-top: -4px; margin-left: 10px;" data-href="https://leaderbrd.herokuapp.com/" data-layout="button" data-size="small">Facebook</a>
+                </td>
+            </tr>`
+        } 
+        if(id > 2) {
             tr += `<tr>
-                <th scope="row">${count}</th>
+                <th scope="row">${id+1}</th>
                 <td>${element["FULL NAME"]}</td>
                 <td>${element["USERNAME"]}</td>
                 <td>${element["EMAIL"]}</td>
